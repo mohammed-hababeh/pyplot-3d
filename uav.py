@@ -46,7 +46,8 @@ class Uav:
         self.arm_b2 = Line(ax)
     
 
-    def draw_at(self, x=np.array([0.0, 0.0, 0.0]).T, R=np.eye(3)):
+    def draw_at(self, x=np.array([0.0, 0.0, 0.0]).T, R=np.eye(3), clear_axis=False):
+
         '''
         Draw the quadrotor at a given position, with a given direction
 
@@ -59,9 +60,9 @@ class Uav:
         Returns:
             None
         '''
-
-        # First, clear the axis of all the previous plots
-        self.ax.clear()
+        if clear_axis:
+            # First, clear the axis of all the previous plots
+            self.ax.clear()
 
         # Center of the quadrotor
         self.body.draw_at(x)
